@@ -3,7 +3,7 @@
     <h1>
       Feature
     </h1>
-    <h5>Title: {{ title }}</h5>
+    <h5 :style="{color: color}">Title: {{ title }}</h5>
     <h5>Content: {{ content }}</h5>
     <h5>Exception: {{ exception }}</h5>
     <template v-for="(component, key) of components">
@@ -14,7 +14,11 @@
 </template>
 
 <script>
+import 'jquery/dist/jquery.js'
+import 'spectrum-colorpicker/spectrum.js'
+import 'spectrum-colorpicker/spectrum.css'
 import CustomInput from '@/components/CustomInput'
+import CustomColorPicker from '@/components/CustomColorPicker'
 
 const components = {
   title: {
@@ -24,6 +28,10 @@ const components = {
   content: {
     name: 'CustomInput',
     varible: 'msg'
+  },
+  color: {
+    name: 'CustomColorPicker',
+    varible: '#000000'
   }
 }
 
@@ -32,25 +40,35 @@ export default {
   data () {
     return {
       components,
-      default: 'default'
+      default: {
+        text: 'default',
+        color: '#000000'
+      }
     }
   },
   computed: {
     title () {
-      let title = this.components['title'] ? this.components['title'].varible : this.default
+      let title = this.components['title'] ? this.components['title'].varible : this.default.text
       return title
     },
     content () {
-      let content = this.components['content'] ? this.components['content'].varible : this.default
+      let content = this.components['content'] ? this.components['content'].varible : this.default.text
       return content
     },
+    color () {
+      let color = this.components['color'] ? this.components['color'].varible : this.default.color
+      return color
+    },
     exception () {
-      let exception = this.components['exception'] ? this.components['exception'].varible : this.default
+      let exception = this.components['exception'] ? this.components['exception'].varible : this.default.text
       return exception
     }
   },
   components: {
-    CustomInput
+    CustomInput,
+    CustomColorPicker
+  },
+  mounted () {
   }
 }
 </script>
