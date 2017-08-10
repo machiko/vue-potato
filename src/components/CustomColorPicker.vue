@@ -24,8 +24,9 @@ export default {
   },
   mounted () {
     let self = this
+    console.log(this.$el)
     /* eslint-disable */
-    $('#custom').spectrum({
+    $(this.$el).find('#custom').spectrum({
       color: this.text,
       change: function (color) {
         self.$emit('update:text', color.toHexString())
