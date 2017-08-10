@@ -3,11 +3,12 @@
     <h1>
       Feature
     </h1>
-    <h5 :style="{color: color}">Title: {{ title }}</h5>
-    <h5>Content: {{ content }}</h5>
-    <h5>Exception: {{ exception }}</h5>
-    <template v-for="(component, key) of components">
-      <components :is="component.name" :field="key" :text.sync="component.varible" ></components>
+    <template v-for="(value, key) of viewers">
+      <components :style="{color: color}" :is="value.component" :field="value.field" :value="controllers[key].varible" />
+    </template>
+    <br/>
+    <template v-for="(component, key) of controllers">
+      <components :is="component.name" :field="key" :text.sync="component.varible" />
     </template>
     <router-link to="/">Go Back</router-link>
   </div>
@@ -19,8 +20,9 @@ import 'spectrum-colorpicker/spectrum.js'
 import 'spectrum-colorpicker/spectrum.css'
 import CustomInput from '@/components/CustomInput'
 import CustomColorPicker from '@/components/CustomColorPicker'
+import CustomLabel from '@/components/CustomLabel'
 
-const components = {
+const controllers = {
   title: {
     name: 'CustomInput',
     varible: 'msg'
@@ -35,11 +37,23 @@ const components = {
   }
 }
 
+const viewers = {
+  title: {
+    component: 'CustomLabel',
+    field: 'Title'
+  },
+  content: {
+    component: 'CustomLabel',
+    field: 'Content'
+  }
+}
+
 export default {
   name: 'feature',
   data () {
     return {
-      components,
+      controllers,
+      viewers,
       default: {
         text: 'default',
         color: '#000000'
@@ -48,25 +62,26 @@ export default {
   },
   computed: {
     title () {
-      let title = this.components['title'] ? this.components['title'].varible : this.default.text
+      let title = this.controllers['title'] ? this.controllers['title'].varible : this.default.text
       return title
     },
     content () {
-      let content = this.components['content'] ? this.components['content'].varible : this.default.text
+      let content = this.controllers['content'] ? this.controllers['content'].varible : this.default.text
       return content
     },
     color () {
-      let color = this.components['color'] ? this.components['color'].varible : this.default.color
+      let color = this.controllers['color'] ? this.controllers['color'].varible : this.default.color
       return color
     },
     exception () {
-      let exception = this.components['exception'] ? this.components['exception'].varible : this.default.text
+      let exception = this.controllers['exception'] ? this.controllers['exception'].varible : this.default.text
       return exception
     }
   },
   components: {
     CustomInput,
-    CustomColorPicker
+    CustomColorPicker,
+    CustomLabel
   },
   mounted () {
   }
