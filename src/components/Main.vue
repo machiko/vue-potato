@@ -15,26 +15,46 @@ const modules = {
     config: {
       controllers: {
         title: {
-          name: 'CustomInput',
-          varible: 'msg'
+          name: 'Title',
+          component: 'CustomInput',
+          viewer: 'title',
+          field: 'text'
         },
         content: {
-          name: 'CustomInput',
-          varible: 'msg'
+          name: 'Content',
+          component: 'CustomInput',
+          viewer: 'content',
+          field: 'text'
+        },
+        titleColor: {
+          name: 'Title Color',
+          component: 'CustomColorPicker',
+          viewer: 'title',
+          field: 'color'
+        },
+        contentColor: {
+          name: 'Content Color',
+          component: 'CustomColorPicker',
+          viewer: 'content',
+          field: 'color'
         }
-        // color: {
-        //   name: 'CustomColorPicker',
-        //   varible: '#000000'
-        // }
       },
       viewers: {
         title: {
           component: 'CustomLabel',
-          field: 'Title'
+          data: {
+            field: 'Title',
+            text: 'Title Value',
+            color: '#000000'
+          }
         },
         content: {
           component: 'CustomLabel',
-          field: 'Content'
+          data: {
+            field: 'Content',
+            text: 'Content Value',
+            color: '#000000'
+          }
         }
       }
     }
@@ -44,26 +64,46 @@ const modules = {
     config: {
       controllers: {
         title: {
-          name: 'CustomInput',
-          varible: 'msg'
+          name: 'Title',
+          component: 'CustomInput',
+          viewer: 'title',
+          field: 'text'
         },
         content: {
-          name: 'CustomInput',
-          varible: 'msg'
+          name: 'Content',
+          component: 'CustomInput',
+          viewer: 'content',
+          field: 'text'
         },
-        color: {
-          name: 'CustomColorPicker',
-          varible: '#000000'
+        titleColor: {
+          name: 'Title Color',
+          component: 'CustomColorPicker',
+          viewer: 'title',
+          field: 'color'
+        },
+        contentColor: {
+          name: 'Content Color',
+          component: 'CustomColorPicker',
+          viewer: 'content',
+          field: 'color'
         }
       },
       viewers: {
-        // content: {
-        //   component: 'CustomLabel',
-        //   field: 'Content'
-        // },
         title: {
           component: 'CustomLabel',
-          field: 'Title'
+          data: {
+            field: 'Title',
+            text: 'Title Value',
+            color: '#000000'
+          }
+        },
+        content: {
+          component: 'CustomLabel',
+          data: {
+            field: 'Content',
+            text: 'Content Value',
+            color: '#000000'
+          }
         }
       }
     }

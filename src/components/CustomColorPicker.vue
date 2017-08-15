@@ -24,7 +24,7 @@ export default {
   },
   mounted () {
     let self = this
-    console.log(this.$el)
+
     /* eslint-disable */
     $(this.$el).find('#custom').spectrum({
       color: this.text,

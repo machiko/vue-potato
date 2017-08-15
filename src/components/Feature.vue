@@ -3,12 +3,14 @@
     <h1>
       {{ name }}
     </h1>
-    <template v-for="(value, key) of config.viewers">
-      <components :style="{color: color}" :is="value.component" :field="value.field" :value="computed[key]" />
+    <!-- Viewers -->
+    <template v-for="value of config.viewers">
+      <components :is="value.component" :field="value.field" :data="value.data" />
     </template>
     <br/>
-    <template v-for="(component, key) of config.controllers">
-      <components :is="component.name" :field="key" :text.sync="component.varible" />
+    <!-- Controllers -->
+    <template v-for="component of config.controllers">
+      <components v-if="config.viewers[component.viewer]" :is="component.component" :field="component.name" :text.sync="config.viewers[component.viewer].data[component.field]" />
     </template>
     <router-link to="/">Go Back</router-link>
   </div>
@@ -34,38 +36,9 @@ export default {
   },
   data () {
     return {
-      default: {
-        text: 'default',
-        color: 'red'
-      }
     }
   },
   computed: {
-    title () {
-      let title = this.config.controllers['title'] ? this.config.controllers['title'].varible : this.default.text
-      return title
-    },
-    content () {
-      let content = this.config.controllers['content'] ? this.config.controllers['content'].varible : this.default.text
-      return content
-    },
-    color () {
-      let color = this.config.controllers['color'] ? this.config.controllers['color'].varible : this.default.color
-      return color
-    },
-    exception () {
-      let exception = this.config.controllers['exception'] ? this.config.controllers['exception'].varible : this.default.text
-      return exception
-    },
-    computed () {
-      let computed = {
-        title: this.title,
-        content: this.content,
-        color: this.color,
-        exception: this.exception
-      }
-      return computed
-    }
   },
   components: {
     CustomInput,
