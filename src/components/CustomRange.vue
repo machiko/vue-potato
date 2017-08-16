@@ -1,7 +1,7 @@
 <template>
   <div>
     <label>{{ field }} :</label>
-    <input type="range" :value="data" :min="limit.min" :max="limit.max" @input="handleInput"> {{data}}
+    <input type="range" :value="data" :min="limit.min" :max="limit.max" :step="limit.step" @input="handleInput"> {{data}}
   </div>
 </template>
 

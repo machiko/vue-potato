@@ -77,8 +77,9 @@ const modules = {
           viewer: 'svg',
           field: 'stripesCount',
           limit: {
-            min: 0,
-            max: 11
+            min: 1,
+            max: 11,
+            step: 2
           }
         },
       },
@@ -97,7 +98,7 @@ const modules = {
             numberStrokeColor: 'rgba(0,0,0,0)',
             isCurved: false,
             stripes: 'None',
-            stripesCount: 0
+            stripesCount: 1
           }
         }
       }
