@@ -38,16 +38,16 @@
         <path d="M0 300 C0 150 270 150 270 300" id="pathCurve"></path>
       </defs>
       <g id="s_group" mask="url('#camera7plus')">
-        <text x="135" y="200" :style="{ fill: data.nameColor.color }" style="stroke-width: 8; text-anchor: middle; stroke-linejoin: round; stroke: rgba(0, 0, 0, 0); font-size: 44px; font-family: HighSchoolUSASerif;" v-text="data.name" />
-        <text x="135" y="200" :style="{ fill: data.nameColor.color }" style="text-anchor: middle; stroke-linejoin: round; font-size: 44px; font-family: HighSchoolUSASerif;" v-text="data.name" />
-        <text x="0" y="0" :style="{ fill: data.nameColor.color }" style="stroke-width: 8; text-anchor: middle; stroke-linejoin: round; stroke: rgba(0, 0, 0, 0); font-size: 44px; font-family: HighSchoolUSASerif; display: none;">
+        <text x="135" y="200" :style="{ fill: data.nameColor.color, 'font-family': data.fontFamily, 'font-size': data.nameFontSize }" style="stroke-width: 8; text-anchor: middle; stroke-linejoin: round; stroke: rgba(0, 0, 0, 0);" v-text="data.name" />
+        <text x="135" y="200" :style="{ fill: data.nameColor.color, 'font-family': data.fontFamily, 'font-size': data.nameFontSize }" style="text-anchor: middle; stroke-linejoin: round; font-size: 44px; font-family: HighSchoolUSASerif;" v-text="data.name" />
+        <text x="0" y="0" :style="{ fill: data.nameColor.color, 'font-family': data.fontFamily, 'font-size': data.nameFontSize }" style="stroke-width: 8; text-anchor: middle; stroke-linejoin: round; stroke: rgba(0, 0, 0, 0); font-size: 44px; font-family: HighSchoolUSASerif; display: none;">
           <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pathCurve" startOffset="50%" v-text="data.name" />
         </text>
-        <text x="0" y="0" :style="{ fill: data.nameColor.color }" style="stroke-width: 8; text-anchor: middle; stroke-linejoin: round; font-size: 44px; font-family: HighSchoolUSASerif; display: none;">
+        <text x="0" y="0" :style="{ fill: data.nameColor.color, 'font-family': data.fontFamily, 'font-size': data.nameFontSize }" style="stroke-width: 8; text-anchor: middle; stroke-linejoin: round; font-size: 44px; font-family: HighSchoolUSASerif; display: none;">
           <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pathCurve" startOffset="50%" v-text="data.name" />
         </text>
-        <text x="135" y="300" class="jerseyNumber" :style="{ fill: data.numberColor.color }" style="stroke-width: 10; text-anchor: middle; stroke: rgba(0, 0, 0, 0); font-size: 150px; font-family: HighSchoolUSASerif;" v-text="data.number" />
-        <text x="135" y="300" class="jerseyNumber" :style="{ fill: data.numberColor.color }" style="text-anchor: middle; font-size: 150px; font-family: HighSchoolUSASerif;" v-text="data.number" />
+        <text x="135" y="300" class="jerseyNumber" :style="{ fill: data.nameColor.color, 'font-family': data.fontFamily, 'font-size': data.numberFontSize }" style="stroke-width: 10; text-anchor: middle; stroke: rgba(0, 0, 0, 0);" v-text="data.number" />
+        <text x="135" y="300" class="jerseyNumber" :style="{ fill: data.nameColor.color, 'font-family': data.fontFamily, 'font-size': data.numberFontSize }" style="text-anchor: middle;" v-text="data.number" />
       </g>
     </svg>
   </div>
@@ -61,7 +61,7 @@
  *  @param {String} color - font color
  *  @param {String} value - label value
  */
-import defaultColors from '@/config/colors'
+import { fontColor, fontSize } from '@/config/jersey'
 
 export default {
   name: 'customLabel',
@@ -74,12 +74,15 @@ export default {
       default: {
         name: 'YOURNAME',
         number: '00',
+        fontFamily: 'HighSchoolUSASerif',
+        nameFontSize: 44,
+        numberFontSize: 150,
         nameColor: {
-          palette: defaultColors,
+          palette: fontColor,
           color: '#000000'
         },
         numberColor: {
-          palette: defaultColors,
+          palette: fontColor,
           color: '#000000'
         }
       }
@@ -87,6 +90,18 @@ export default {
   },
   data () {
     return {
+    }
+  },
+  watch: {
+    data: {
+      handler: function (val, oldVal) {
+        let data = val
+
+        data.nameFontSize = fontSize[val.fontFamily].nameFontSize[val.name.length]
+        data.numberFontSize = fontSize[val.fontFamily].numberFontSize[val.number.length]
+        this.$emit('update:data', data)
+      },
+      deep: true
     }
   },
   methods: {

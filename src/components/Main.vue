@@ -40,6 +40,9 @@ const modules = {
           data: {
             name: 'YOURNAME',
             number: '00',
+            fontFamily: 'HighSchoolUSASerif',
+            nameFontSize: 44,
+            numberFontSize: 150,
             nameColor: {
               palette: defaultColors,
               color: '#ffe800'

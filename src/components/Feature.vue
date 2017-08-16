@@ -5,7 +5,7 @@
     </h1>
     <!-- Viewers -->
     <template v-for="value of config.viewers">
-      <components :is="value.component" :field="value.field" :data="value.data" />
+      <components :is="value.component" :field="value.field" :data.sync="value.data" />
     </template>
     <br/>
     <!-- Controllers -->
