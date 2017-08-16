@@ -10,7 +10,7 @@
     <br/>
     <!-- Controllers -->
     <template v-for="component of config.controllers">
-      <components v-if="config.viewers[component.viewer]" :is="component.component" :field="component.name" :limit="component.limit" :data.sync="config.viewers[component.viewer].data[component.field]" />
+      <components v-if="config.viewers[component.viewer]" :is="component.component" :field="component.name" :limit="component.limit" :options="component.options" :data.sync="config.viewers[component.viewer].data[component.field]" />
     </template>
     <router-link to="/">Go Back</router-link>
   </div>

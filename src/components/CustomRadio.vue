@@ -2,9 +2,9 @@
   <div>
     <label>{{ field }} :</label>
     <form @change="handleInput">
-      <template v-for="option of data.options">
+      <template v-for="option of options">
         <div>
-          <input type="radio" :name="field" :value="option" v-text="option" :checked="option == data.value">{{option}}
+          <input type="radio" :name="field" :value="option" v-text="option" :checked="option == data">{{option}}
         </div>
       </template>
     </form>
@@ -20,6 +20,9 @@ export default {
     },
     data: {
       type: Object
+    },
+    options: {
+      type: Array
     }
   },
   data () {
@@ -28,11 +31,8 @@ export default {
   },
   methods: {
     handleInput (e) {
-      let data = this.data
       let value = e.target.value
-
-      data.value = value
-      this.$emit('update:data', data)
+      this.$emit('update:data', value)
     }
   },
   mounted () {

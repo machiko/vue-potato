@@ -2,8 +2,8 @@
   <div>
     <label>{{ field }} :</label>
     <select @change="handleInput">
-      <template v-for="option of data.options">
-        <option :value="option" v-text="option" :selected="option == data.value"/>
+      <template v-for="option of options">
+        <option :value="option" v-text="option" :selected="option == data"/>
       </template>
     </select>
   </div>
@@ -18,6 +18,9 @@ export default {
     },
     data: {
       type: Object
+    },
+    options: {
+      type: Array
     }
   },
   data () {
@@ -26,11 +29,8 @@ export default {
   },
   methods: {
     handleInput (e) {
-      let data = this.data
       let value = e.target.value
-
-      data.value = value
-      this.$emit('update:data', data)
+      this.$emit('update:data', value)
     }
   },
   mounted () {

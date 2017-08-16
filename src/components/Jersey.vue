@@ -38,16 +38,16 @@
         <path d="M0 300 C0 150 270 150 270 300" id="pathCurve"></path>
       </defs>
       <g id="s_group" mask="url('#camera7plus')">
-        <text v-if="!data.isCurved" x="135" y="200" :style="{ stroke: data.nameStrokeColor.color, 'font-family': data.fontFamily.value, 'font-size': data.nameFontSize }" style="stroke-width: 8; text-anchor: middle; stroke-linejoin: round;" v-text="data.name" />
-        <text v-if="!data.isCurved" x="135" y="200" :style="{ fill: data.nameColor.color, 'font-family': data.fontFamily.value, 'font-size': data.nameFontSize }" style="text-anchor: middle; stroke-linejoin: round; font-family: HighSchoolUSASerif;" v-text="data.name" />
-        <text v-if="data.isCurved" x="0" y="0" :style="{ stroke: data.nameStrokeColor.color, 'font-family': data.fontFamily.value, 'font-size': data.nameFontSize }" style="stroke-width: 8; text-anchor: middle; stroke-linejoin: round;">
+        <text v-if="!data.isCurved" x="135" y="200" :style="{ stroke: data.nameStrokeColor, 'font-family': data.fontFamily, 'font-size': data.nameFontSize }" style="stroke-width: 8; text-anchor: middle; stroke-linejoin: round;" v-text="data.name" />
+        <text v-if="!data.isCurved" x="135" y="200" :style="{ fill: data.nameColor, 'font-family': data.fontFamily, 'font-size': data.nameFontSize }" style="text-anchor: middle; stroke-linejoin: round; font-family: HighSchoolUSASerif;" v-text="data.name" />
+        <text v-if="data.isCurved" x="0" y="0" :style="{ stroke: data.nameStrokeColor, 'font-family': data.fontFamily, 'font-size': data.nameFontSize }" style="stroke-width: 8; text-anchor: middle; stroke-linejoin: round;">
           <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pathCurve" startOffset="50%" v-text="data.name" />
         </text>
-        <text v-if="data.isCurved" x="0" y="0" :style="{ fill: data.nameColor.color, 'font-family': data.fontFamily.value, 'font-size': data.nameFontSize }" style="stroke-width: 8; text-anchor: middle; stroke-linejoin: round;">
+        <text v-if="data.isCurved" x="0" y="0" :style="{ fill: data.nameColor, 'font-family': data.fontFamily, 'font-size': data.nameFontSize }" style="stroke-width: 8; text-anchor: middle; stroke-linejoin: round;">
           <textPath xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#pathCurve" startOffset="50%" v-text="data.name" />
         </text>
-        <text x="135" y="300" class="jerseyNumber" :style="{ stroke: data.numberStrokeColor.color, 'font-family': data.fontFamily.value, 'font-size': data.numberFontSize }" style="stroke-width: 10; text-anchor: middle;" v-text="data.number" />
-        <text x="135" y="300" class="jerseyNumber" :style="{ fill: data.numberColor.color, 'font-family': data.fontFamily.value, 'font-size': data.numberFontSize }" style="text-anchor: middle;" v-text="data.number" />
+        <text x="135" y="300" class="jerseyNumber" :style="{ stroke: data.numberStrokeColor, 'font-family': data.fontFamily, 'font-size': data.numberFontSize }" style="stroke-width: 10; text-anchor: middle;" v-text="data.number" />
+        <text x="135" y="300" class="jerseyNumber" :style="{ fill: data.numberColor, 'font-family': data.fontFamily, 'font-size': data.numberFontSize }" style="text-anchor: middle;" v-text="data.number" />
       </g>
     </svg>
   </div>
@@ -105,8 +105,8 @@ export default {
       handler: function (val, oldVal) {
         let data = val
 
-        data.nameFontSize = fontSize[val.fontFamily.value].nameFontSize[val.name.length]
-        data.numberFontSize = fontSize[val.fontFamily.value].numberFontSize[val.number.length]
+        data.nameFontSize = fontSize[val.fontFamily].nameFontSize[val.name.length]
+        data.numberFontSize = fontSize[val.fontFamily].numberFontSize[val.number.length]
         this.$emit('update:data', data)
       },
       deep: true

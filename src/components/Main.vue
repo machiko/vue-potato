@@ -41,13 +41,15 @@ const modules = {
           name: 'Name Color',
           component: 'CustomColorPicker',
           viewer: 'svg',
-          field: 'nameColor'
+          field: 'nameColor',
+          options: fontColor
         },
         nameStrokeColor: {
           name: 'Name Stroke Color',
           component: 'CustomColorPicker',
           viewer: 'svg',
-          field: 'nameStrokeColor'
+          field: 'nameStrokeColor',
+          options: fontColor
         },
         isCurved: {
           name: 'Curved',
@@ -59,13 +61,15 @@ const modules = {
           name: 'FontFamily',
           component: 'CustomSelect',
           viewer: 'svg',
-          field: 'fontFamily'
+          field: 'fontFamily',
+          options: fontFamily
         },
         stripes: {
           name: 'Stripes',
           component: 'CustomRadio',
           viewer: 'svg',
-          field: 'stripes'
+          field: 'stripes',
+          options: ['None', 'Vertical', 'Horizontal']
         },
         stripesCount: {
           name: 'Stripes Count',
@@ -84,33 +88,15 @@ const modules = {
           data: {
             name: 'YOURNAME',
             number: '00',
-            fontFamily: {
-              options: fontFamily,
-              value: 'HighSchoolUSASerif'
-            },
+            fontFamily: 'HighSchoolUSASerif',
             nameFontSize: 44,
             numberFontSize: 150,
-            nameColor: {
-              palette: fontColor,
-              color: '#ffe800'
-            },
-            numberColor: {
-              palette: fontColor,
-              color: '#ffe800'
-            },
-            nameStrokeColor: {
-              palette: fontColor,
-              color: 'rgba(0,0,0,0)'
-            },
-            numberStrokeColor: {
-              palette: fontColor,
-              color: 'rgba(0,0,0,0)'
-            },
+            nameColor: '#ffe800',
+            numberColor: '#ffe800',
+            nameStrokeColor: 'rgba(0,0,0,0)',
+            numberStrokeColor: 'rgba(0,0,0,0)',
             isCurved: false,
-            stripes: {
-              options: ['None', 'Vertical', 'Horizontal'],
-              value: 'None'
-            },
+            stripes: 'None',
             stripesCount: 0
           }
         }

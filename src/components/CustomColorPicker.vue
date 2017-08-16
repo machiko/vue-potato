@@ -14,6 +14,9 @@ export default {
     },
     data: {
       type: Object
+    },
+    options: {
+      type: Array
     }
   },
   data () {
@@ -23,19 +26,15 @@ export default {
   methods: {
   },
   mounted () {
-    let self = this
-
     /* eslint-disable */
     $(this.$el).find('#custom').spectrum({
       showPaletteOnly: true,
       showPalette: true,
-      palette: this.data.palette,
-      color: this.data.color,
-      move: function (color) {
-        let data = self.data
-
-        data.color = color.toRgbString()
-        self.$emit('update:data', data)
+      palette: this.options,
+      color: this.data,
+      move: color => {
+        let rgb = color.toRgbString()
+        this.$emit('update:data', rgb)
       }
     })
   }
