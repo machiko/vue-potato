@@ -8,7 +8,7 @@
 
 <script>
 import Feature from '@/components/Feature'
-import defaultColors from '@/config/colors'
+import { fontColor, fontFamily } from '@/config/jersey'
 
 const modules = {
   Jersey: {
@@ -54,6 +54,12 @@ const modules = {
           component: 'customCheckbox',
           viewer: 'svg',
           field: 'isCurved'
+        },
+        fontFamily: {
+          name: 'FontFamily',
+          component: 'customSelect',
+          viewer: 'svg',
+          field: 'fontFamily'
         }
       },
       viewers: {
@@ -62,26 +68,29 @@ const modules = {
           data: {
             name: 'YOURNAME',
             number: '00',
-            fontFamily: 'HighSchoolUSASerif',
+            fontFamily: {
+              options: fontFamily,
+              value: 'HighSchoolUSASerif'
+            },
             nameFontSize: 44,
             numberFontSize: 150,
             nameColor: {
-              palette: defaultColors,
+              palette: fontColor,
               color: '#ffe800'
             },
             numberColor: {
-              palette: defaultColors,
+              palette: fontColor,
               color: '#ffe800'
             },
             nameStrokeColor: {
-              palette: defaultColors,
+              palette: fontColor,
               color: 'rgba(0,0,0,0)'
             },
             numberStrokeColor: {
-              palette: defaultColors,
+              palette: fontColor,
               color: 'rgba(0,0,0,0)'
             },
-            isCurved: false
+            isCurved: false,
           }
         }
       }
