@@ -13,7 +13,7 @@ export default {
       type: String
     },
     data: {
-      type: Object
+      type: String
     },
     options: {
       type: Array
