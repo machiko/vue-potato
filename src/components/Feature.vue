@@ -10,7 +10,7 @@
     <br/>
     <!-- Controllers -->
     <template v-for="component of config.controllers">
-      <components v-if="config.viewers[component.viewer]" :is="component.component" :field="component.name" :text.sync="config.viewers[component.viewer].data[component.field]" />
+      <components v-if="config.viewers[component.viewer]" :is="component.component" :field="component.name" :data.sync="config.viewers[component.viewer].data[component.field]" />
     </template>
     <router-link to="/">Go Back</router-link>
   </div>
@@ -23,6 +23,7 @@ import 'spectrum-colorpicker/spectrum.css'
 import CustomInput from '@/components/CustomInput'
 import CustomColorPicker from '@/components/CustomColorPicker'
 import CustomLabel from '@/components/CustomLabel'
+import Jersey from '@/components/Jersey'
 
 export default {
   name: 'feature',
@@ -43,7 +44,8 @@ export default {
   components: {
     CustomInput,
     CustomColorPicker,
-    CustomLabel
+    CustomLabel,
+    Jersey
   },
   mounted () {
 

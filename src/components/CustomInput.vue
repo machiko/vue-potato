@@ -1,7 +1,7 @@
 <template>
   <div>
     <label>{{ field }} :</label>
-    <input type="text" :value="text" @input="handleInput">
+    <input type="text" :value="data" @input="handleInput">
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
     field: {
       type: String
     },
-    text: {
+    data: {
       type: String
     }
   },
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     handleInput (e) {
-      this.$emit('update:text', e.target.value)
+      this.$emit('update:data', e.target.value)
     }
   },
   mounted () {

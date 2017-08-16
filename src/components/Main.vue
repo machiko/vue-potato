@@ -8,52 +8,46 @@
 
 <script>
 import Feature from '@/components/Feature'
+import defaultColors from '@/config/colors'
 
 const modules = {
   Jersey: {
     type: 'Feature',
     config: {
       controllers: {
-        title: {
+        name: {
           name: 'Title',
           component: 'CustomInput',
-          viewer: 'title',
-          field: 'text'
+          viewer: 'svg',
+          field: 'name'
         },
-        content: {
+        number: {
           name: 'Content',
           component: 'CustomInput',
-          viewer: 'content',
-          field: 'text'
+          viewer: 'svg',
+          field: 'number'
         },
-        titleColor: {
-          name: 'Title Color',
+        nameColor: {
+          name: 'Name Color',
           component: 'CustomColorPicker',
-          viewer: 'title',
-          field: 'color'
-        },
-        contentColor: {
-          name: 'Content Color',
-          component: 'CustomColorPicker',
-          viewer: 'content',
-          field: 'color'
+          viewer: 'svg',
+          field: 'nameColor'
         }
       },
       viewers: {
-        title: {
-          component: 'CustomLabel',
+        svg: {
+          component: 'Jersey',
           data: {
-            field: 'Title',
-            text: 'Title Value',
-            color: '#000000'
-          }
-        },
-        content: {
-          component: 'CustomLabel',
-          data: {
-            field: 'Content',
-            text: 'Content Value',
-            color: '#000000'
+            name: 'YOURNAME',
+            number: '00',
+            nameColor: {
+              palette: defaultColors,
+              color: '#ffe800'
+            },
+            numberColor: {
+              palette: defaultColors,
+              color: '#ffe800'
+            }
           }
         }
       }

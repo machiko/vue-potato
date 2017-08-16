@@ -12,8 +12,8 @@ export default {
     field: {
       type: String
     },
-    text: {
-      type: String
+    data: {
+      type: Object
     }
   },
   data () {
@@ -27,9 +27,14 @@ export default {
 
     /* eslint-disable */
     $(this.$el).find('#custom').spectrum({
-      color: this.text,
+      showPaletteOnly: true,
+      showPalette: true,
+      palette: this.data.palette,
+      color: this.data.color,
       change: function (color) {
-        self.$emit('update:text', color.toHexString())
+        let data = self.data
+        data.color = color.toHexString()
+        self.$emit('update:data', data)
       }
     })
   }
