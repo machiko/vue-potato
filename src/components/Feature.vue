@@ -25,6 +25,7 @@ import CustomColorPicker from '@/components/CustomColorPicker'
 import CustomLabel from '@/components/CustomLabel'
 import CustomCheckbox from '@/components/CustomCheckbox'
 import CustomSelect from '@/components/CustomSelect'
+import CustomRadio from '@/components/CustomRadio'
 import Jersey from '@/components/Jersey'
 
 export default {
@@ -49,6 +50,7 @@ export default {
     CustomLabel,
     CustomCheckbox,
     CustomSelect,
+    CustomRadio,
     Jersey
   },
   mounted () {

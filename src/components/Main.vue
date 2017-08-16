@@ -51,15 +51,21 @@ const modules = {
         },
         isCurved: {
           name: 'Curved',
-          component: 'customCheckbox',
+          component: 'CustomCheckbox',
           viewer: 'svg',
           field: 'isCurved'
         },
         fontFamily: {
           name: 'FontFamily',
-          component: 'customSelect',
+          component: 'CustomSelect',
           viewer: 'svg',
           field: 'fontFamily'
+        },
+        stripes: {
+          name: 'Stripes',
+          component: 'CustomRadio',
+          viewer: 'svg',
+          field: 'stripes'
         }
       },
       viewers: {
@@ -91,6 +97,10 @@ const modules = {
               color: 'rgba(0,0,0,0)'
             },
             isCurved: false,
+            stripes: {
+              options: ['None', 'Vertical', 'Horizontal'],
+              value: 'None'
+            }
           }
         }
       }
