@@ -61,7 +61,7 @@
  *  @param {String} color - font color
  *  @param {String} value - label value
  */
-import { fontColor, fontSize } from '@/config/jersey'
+import { fontSize } from '@/config/jersey'
 
 export default {
   name: 'customLabel',
@@ -77,22 +77,13 @@ export default {
         fontFamily: 'HighSchoolUSASerif',
         nameFontSize: 44,
         numberFontSize: 150,
-        nameColor: {
-          palette: fontColor,
-          color: '#ffe800'
-        },
-        numberColor: {
-          palette: fontColor,
-          color: '#ffe800'
-        },
-        nameStrokeColor: {
-          palette: fontColor,
-          color: '#ffe800'
-        },
-        numberStrokeColor: {
-          palette: fontColor,
-          color: '#ffe800'
-        }
+        nameColor: '#ffe800',
+        numberColor: '#ffe800',
+        nameStrokeColor: 'rgba(0,0,0,0)',
+        numberStrokeColor: 'rgba(0,0,0,0)',
+        isCurved: false,
+        stripes: 'None',
+        stripesCount: 0
       }
     }
   },
