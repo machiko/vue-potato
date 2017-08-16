@@ -31,9 +31,10 @@ export default {
       showPalette: true,
       palette: this.data.palette,
       color: this.data.color,
-      change: function (color) {
+      move: function (color) {
         let data = self.data
-        data.color = color.toHexString()
+
+        data.color = color.toRgbString()
         self.$emit('update:data', data)
       }
     })

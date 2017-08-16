@@ -1,6 +1,6 @@
 import defaultColors from '@/config/colors'
 
-export const strokeColor = ['transparent'].concat(defaultColors)
+export const strokeColor = ['rgba(0,0,0,0)'].concat(defaultColors)
 
 export const fontColor = defaultColors
 

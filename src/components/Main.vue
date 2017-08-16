@@ -42,6 +42,12 @@ const modules = {
           component: 'CustomColorPicker',
           viewer: 'svg',
           field: 'nameColor'
+        },
+        nameStrokeColor: {
+          name: 'Name Stroke Color',
+          component: 'CustomColorPicker',
+          viewer: 'svg',
+          field: 'nameStrokeColor'
         }
       },
       viewers: {
@@ -60,7 +66,16 @@ const modules = {
             numberColor: {
               palette: defaultColors,
               color: '#ffe800'
+            },
+            nameStrokeColor: {
+              palette: defaultColors,
+              color: 'rgba(0,0,0,0)'
+            },
+            numberStrokeColor: {
+              palette: defaultColors,
+              color: 'rgba(0,0,0,0)'
             }
+
           }
         }
       }
