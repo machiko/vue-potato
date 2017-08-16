@@ -19,13 +19,23 @@ const modules = {
           name: 'Title',
           component: 'CustomInput',
           viewer: 'svg',
-          field: 'name'
+          field: 'name',
+          limit: {
+            length: 13,
+            /* eslint-disable */
+            regex: /^[A-Za-z\u4E00-\u9FFF\.,-\/#!$%\^&\*;:{}=\-_`~()\ლ(́◕◞౪◟◕‵ლ)\s]*$/
+          }
         },
         number: {
           name: 'Content',
           component: 'CustomInput',
           viewer: 'svg',
-          field: 'number'
+          field: 'number',
+          limit: {
+            length: 5,
+            /* eslint-disable */
+            regex: /^[0-9\.]*$/
+          }
         },
         nameColor: {
           name: 'Name Color',

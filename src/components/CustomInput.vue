@@ -14,6 +14,9 @@ export default {
     },
     data: {
       type: String
+    },
+    limit: {
+      type: Object
     }
   },
   data () {
@@ -22,7 +25,18 @@ export default {
   },
   methods: {
     handleInput (e) {
-      this.$emit('update:data', e.target.value)
+      let value = e.target.value
+      let warnings = {
+        length: 'Warning: length limit is too long.',
+        regex: 'Warning: illegal character.'
+      }
+      if (value.length > this.limit.length || !value.match(this.limit.regex)) {
+        let warning = !value.match(this.limit.regex) ? warnings.regex : warnings.length
+        e.target.value = this.data
+        alert(warning)
+      } else {
+        this.$emit('update:data', value)
+      }
     }
   },
   mounted () {
