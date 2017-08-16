@@ -23,6 +23,7 @@ import 'spectrum-colorpicker/spectrum.css'
 import CustomInput from '@/components/CustomInput'
 import CustomColorPicker from '@/components/CustomColorPicker'
 import CustomLabel from '@/components/CustomLabel'
+import customCheckbox from '@/components/customCheckbox'
 import Jersey from '@/components/Jersey'
 
 export default {
@@ -45,6 +46,7 @@ export default {
     CustomInput,
     CustomColorPicker,
     CustomLabel,
+    customCheckbox,
     Jersey
   },
   mounted () {

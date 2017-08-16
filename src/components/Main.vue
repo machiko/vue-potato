@@ -16,7 +16,7 @@ const modules = {
     config: {
       controllers: {
         name: {
-          name: 'Title',
+          name: 'Name',
           component: 'CustomInput',
           viewer: 'svg',
           field: 'name',
@@ -27,7 +27,7 @@ const modules = {
           }
         },
         number: {
-          name: 'Content',
+          name: 'Number',
           component: 'CustomInput',
           viewer: 'svg',
           field: 'number',
@@ -48,6 +48,12 @@ const modules = {
           component: 'CustomColorPicker',
           viewer: 'svg',
           field: 'nameStrokeColor'
+        },
+        isCurved: {
+          name: 'Curved',
+          component: 'customCheckbox',
+          viewer: 'svg',
+          field: 'isCurved'
         }
       },
       viewers: {
@@ -74,57 +80,8 @@ const modules = {
             numberStrokeColor: {
               palette: defaultColors,
               color: 'rgba(0,0,0,0)'
-            }
-
-          }
-        }
-      }
-    }
-  },
-  Quote: {
-    type: 'Feature',
-    config: {
-      controllers: {
-        title: {
-          name: 'Title',
-          component: 'CustomInput',
-          viewer: 'title',
-          field: 'text'
-        },
-        content: {
-          name: 'Content',
-          component: 'CustomInput',
-          viewer: 'content',
-          field: 'text'
-        },
-        titleColor: {
-          name: 'Title Color',
-          component: 'CustomColorPicker',
-          viewer: 'title',
-          field: 'color'
-        },
-        contentColor: {
-          name: 'Content Color',
-          component: 'CustomColorPicker',
-          viewer: 'content',
-          field: 'color'
-        }
-      },
-      viewers: {
-        title: {
-          component: 'CustomLabel',
-          data: {
-            field: 'Title',
-            text: 'Title Value',
-            color: '#000000'
-          }
-        },
-        content: {
-          component: 'CustomLabel',
-          data: {
-            field: 'Content',
-            text: 'Content Value',
-            color: '#000000'
+            },
+            isCurved: false
           }
         }
       }
