@@ -1,22 +1,21 @@
 <template>
   <div>
     <label>{{ field }} :</label>
-    <select @change="handleInput">
-      <template v-for="option of data.options">
-        <option :value="option" v-text="option" :selected="option == data.value"/>
-      </template>
-    </select>
+    <input type="range" :value="data" :min="limit.min" :max="limit.max" @input="handleInput"> {{data}}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'customSelect',
+  name: 'customRange',
   props: {
     field: {
       type: String
     },
     data: {
+      type: Number
+    },
+    limit: {
       type: Object
     }
   },
@@ -26,11 +25,8 @@ export default {
   },
   methods: {
     handleInput (e) {
-      let data = this.data
-      let value = e.target.value
-
-      data.value = value
-      this.$emit('update:data', data)
+      let value = parseInt(e.target.value)
+      this.$emit('update:data', value)
     }
   },
   mounted () {

@@ -66,7 +66,17 @@ const modules = {
           component: 'CustomRadio',
           viewer: 'svg',
           field: 'stripes'
-        }
+        },
+        stripesCount: {
+          name: 'Stripes Count',
+          component: 'CustomRange',
+          viewer: 'svg',
+          field: 'stripesCount',
+          limit: {
+            min: 0,
+            max: 11
+          }
+        },
       },
       viewers: {
         svg: {
@@ -100,7 +110,8 @@ const modules = {
             stripes: {
               options: ['None', 'Vertical', 'Horizontal'],
               value: 'None'
-            }
+            },
+            stripesCount: 0
           }
         }
       }

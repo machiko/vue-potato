@@ -26,6 +26,7 @@ import CustomLabel from '@/components/CustomLabel'
 import CustomCheckbox from '@/components/CustomCheckbox'
 import CustomSelect from '@/components/CustomSelect'
 import CustomRadio from '@/components/CustomRadio'
+import CustomRange from '@/components/CustomRange'
 import Jersey from '@/components/Jersey'
 
 export default {
@@ -51,6 +52,7 @@ export default {
     CustomCheckbox,
     CustomSelect,
     CustomRadio,
+    CustomRange,
     Jersey
   },
   mounted () {

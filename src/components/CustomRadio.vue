@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'customInput',
+  name: 'customRadio',
   props: {
     field: {
       type: String
