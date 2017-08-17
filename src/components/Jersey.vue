@@ -61,6 +61,7 @@
  *  @param {String} color - font color
  *  @param {String} value - label value
  */
+import Snap from 'snapsvg'
 import { fontSize } from '@/config/jersey'
 
 export default {
@@ -72,6 +73,7 @@ export default {
     data: {
       type: Object,
       default: {
+        device: 'iPhone 7',
         name: 'YOURNAME',
         number: '00',
         fontFamily: 'HighSchoolUSASerif',
@@ -83,7 +85,7 @@ export default {
         numberStrokeColor: 'rgba(0,0,0,0)',
         isCurved: false,
         stripes: 'None',
-        stripesCount: 0
+        stripesCount: 1
       }
     }
   },
@@ -93,9 +95,28 @@ export default {
   },
   watch: {
     data: {
-      handler: function (val, oldVal) {
+      handler: async function (val, oldVal) {
         let data = val
-
+        let { device, stripes, stripesCount } = data
+        if (stripes !== 'None') {
+          Snap('#jersey-element').selectAll('svg').remove()
+          let type = stripes === 'Vertical' ? 'v' : 'h'
+          let fileName = `${device}_${type}`
+          let sGroup = document.getElementById('s_group')
+          let svgArray = []
+          if (stripesCount === 1) {
+            svgArray[0] = await loadSVG(require(`@/assets/images/stripes/${fileName}_1.svg`))
+            sGroup.insertBefore(svgArray[0].node, sGroup.firstChild)
+          } else {
+            svgArray[0] = loadSVG(require(`@/assets/images/stripes/${fileName}_${stripesCount}_0.svg`))
+            svgArray[1] = loadSVG(require(`@/assets/images/stripes/${fileName}_${stripesCount}_1.svg`))
+            Promise.all(svgArray).then(value => {
+              value.map(svg => {
+                sGroup.insertBefore(svg.node, sGroup.firstChild)
+              })
+            })
+          }
+        }
         data.nameFontSize = fontSize[val.fontFamily].nameFontSize[val.name.length]
         data.numberFontSize = fontSize[val.fontFamily].numberFontSize[val.number.length]
         this.$emit('update:data', data)
@@ -108,6 +129,15 @@ export default {
   mounted () {
   }
 }
+
+function loadSVG (resource) {
+  return new Promise((resolve, reject) => {
+    Snap.load(resource, function (svg) {
+      resolve(svg)
+    })
+  })
+}
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

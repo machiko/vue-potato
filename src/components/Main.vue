@@ -87,6 +87,7 @@ const modules = {
         svg: {
           component: 'Jersey',
           data: {
+            device: 'iPhone 7',
             name: 'YOURNAME',
             number: '00',
             fontFamily: 'HighSchoolUSASerif',
