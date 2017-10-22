@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import 'jquery/dist/jquery.js'
 import 'spectrum-colorpicker/spectrum.js'
 import 'spectrum-colorpicker/spectrum.css'
 import CustomInput from '@/components/CustomInput'

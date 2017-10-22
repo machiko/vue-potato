@@ -116,6 +116,8 @@ export default {
               })
             })
           }
+        } else {
+          Snap('#jersey-element').selectAll('svg').remove()
         }
         data.nameFontSize = fontSize[val.fontFamily].nameFontSize[val.name.length]
         data.numberFontSize = fontSize[val.fontFamily].numberFontSize[val.number.length]
