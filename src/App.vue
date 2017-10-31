@@ -21,7 +21,7 @@ export default {
   margin-top: 60px;
 }
 body {
-  background-color: gray
+  background-color: #333;
 }
 
 </style>
